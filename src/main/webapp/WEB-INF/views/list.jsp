@@ -31,7 +31,7 @@
 			</tr>
 			<tr>
 				<td><a href="${pageContext.request.contextPath}/delete">[삭제]
-				<input type="hidden" name="id" value="${personVo.personId }"></a></td>
+				<input type="hidden" name="no" value="${personVo.personId }"></a></td>
 				<td><a href="${pageContext.request.contextPath}/modifyform">[수정]</a></td>
 			</tr>
 

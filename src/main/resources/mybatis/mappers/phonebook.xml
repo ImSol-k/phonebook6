@@ -11,6 +11,17 @@
 		]]>
 	</select>
 	
+	<!-- 1명데이터가져오기 selectOne-->
+	<select id="selectOne" parameterType="int" resultType="personVo">
+		<![CDATA[
+		select person_id personId, 
+		       name,
+		       hp,
+		       company
+		from person where person_id=#{id}
+		]]>
+	</select>
+	
 	<!-- 등록 -->
 	<insert id="insert" parameterType="personVo">
 		<![CDATA[
