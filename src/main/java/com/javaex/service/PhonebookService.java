@@ -1,7 +1,6 @@
 package com.javaex.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,17 +32,22 @@ public class PhonebookService {
 	}
 	
 	//수정
-	public Map<String, Object> exeModifyForm(int no) {
+	public PersonVo exeModifyForm(int no) {
 		System.out.println("PhonebookService.exeModifyForm()");
 		
-		Map<String, Object> pMap = phonebookDao.personSelectOne(no);
+		PersonVo personVo = phonebookDao.personSelectOne(no);
 		
-		return pMap;
+		return personVo;
 	}
 	public int exeModify(PersonVo personVo) {
 		System.out.println("PhonebookService.exeModify()");
-
+		System.out.println("Service: "+personVo);
 		return phonebookDao.personUpdate(personVo);
+	}
+	
+	//삭제
+	public int exeDelete(PersonVo personVo) {
+		return phonebookDao.personDelete(personVo);
 	}
 	
 }

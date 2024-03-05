@@ -1,7 +1,6 @@
 package com.javaex.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +31,6 @@ public class PhonebookController {
 
 		// model에 pList로 추가
 		model.addAttribute("pList", pList);
-		System.out.println("Service:" + pList);// 확인용
 
 		return "list";
 	}
@@ -55,18 +53,19 @@ public class PhonebookController {
 
 		phonebookService.exeWrite(personVo);
 
-		return "list";
+		return "redirect:/list";
 	}
 
 	/**********
 	 * modify */
 	// 수정폼
 	@RequestMapping(value = "/modifyform", method = { RequestMethod.GET, RequestMethod.POST })
-	public String modifyForm(@ModelAttribute int no, Model model) {
+	public String modifyForm(@RequestParam(value = "no") int no, Model model) {
 		System.out.println("PhonebookController.modifyForm()");
 
-		Map<String, Object> pMap = phonebookService.exeModifyForm(no);
-		model.addAttribute("pMap", pMap);
+		PersonVo personVo = phonebookService.exeModifyForm(no);
+		System.out.println("modifyform: "+personVo);
+		model.addAttribute("personVo", personVo);
 
 		return "modifyForm";
 	}
@@ -75,9 +74,21 @@ public class PhonebookController {
 	public String modify(@ModelAttribute PersonVo personVo) {
 		System.out.println("PhonebookController.modify()");
 
+		System.out.println("Controller: "+personVo);
 		phonebookService.exeModify(personVo);
-
-		return "list";
+		return "redirect:/list";
 	}
-
+	
+	/**********
+	 * delete */
+	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
+	public String delete(@ModelAttribute PersonVo personVo) {
+		System.out.println("PhonebookController.delete()");
+		
+		phonebookService.exeDelete(personVo);
+		
+		return "redirect:/list";
+	}
+	
+	
 }

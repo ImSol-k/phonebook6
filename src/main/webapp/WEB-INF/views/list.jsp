@@ -30,9 +30,8 @@
 				<td>${personVo.company }</td>
 			</tr>
 			<tr>
-				<td><a href="${pageContext.request.contextPath}/delete">[삭제]
-				<input type="hidden" name="no" value="${personVo.personId }"></a></td>
-				<td><a href="${pageContext.request.contextPath}/modifyform">[수정]</a></td>
+				<td><a href="${pageContext.request.contextPath}/delete?no=${personVo.personId}">[삭제]</a></td>
+				<td><a href="${pageContext.request.contextPath}/modifyform?no=${personVo.personId}">[수정]</a></td>
 			</tr>
 
 		</table>
