@@ -46,8 +46,8 @@ public class PhonebookService {
 	}
 	
 	//삭제
-	public int exeDelete(PersonVo personVo) {
-		return phonebookDao.personDelete(personVo);
+	public int exeDelete(int no) {
+		return phonebookDao.personDelete(no);
 	}
 	
 }

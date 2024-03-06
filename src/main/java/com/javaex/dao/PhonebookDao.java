@@ -48,10 +48,10 @@ public class PhonebookDao {
 	}
 	
 	//삭제 ===========================================================================
-	public int personDelete(PersonVo personVo) {
+	public int personDelete(int no) {
 		System.out.println("PhonebookDao.personDelete()");
 		
-		return sqlSession.delete("phonebook.delete", personVo);
+		return sqlSession.delete("phonebook.delete", no);
 	}
 	
 

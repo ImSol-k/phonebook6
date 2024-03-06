@@ -28,7 +28,7 @@
 			<label>회사(company)</label> <input type="text" name="company" value="${personVo.company}">
 		</div>
 
-		<input type="text" name="no" value="${personVo.personId}"><br>
+		<input type="text" name="personId" value="${personVo.personId}"><br>
 		<button type="submit">수정</button>
 
 	</form>

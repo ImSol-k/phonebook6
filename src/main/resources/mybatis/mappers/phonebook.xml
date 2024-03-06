@@ -39,7 +39,7 @@
 
 
 	<!-- 삭제 -->
-	<delete id="delete" parameterType="personVo">
+	<delete id="delete" parameterType="int">
 		<![CDATA[
 			delete from person
 			where person_id = #{personId}

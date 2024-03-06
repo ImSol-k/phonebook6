@@ -82,10 +82,10 @@ public class PhonebookController {
 	/**********
 	 * delete */
 	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
-	public String delete(@ModelAttribute PersonVo personVo) {
+	public String delete(@RequestParam(value = "no") int no) {
 		System.out.println("PhonebookController.delete()");
 		
-		phonebookService.exeDelete(personVo);
+		phonebookService.exeDelete(no);
 		
 		return "redirect:/list";
 	}
